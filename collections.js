@@ -60,26 +60,18 @@ function strToObj(x){
     return object
 }
 
-function superTypeOf (x){
-   
-        if (typeof x === 'object'){
-
-        
-            if (instance instanceof Map){
-                return 'Map'
-            }else if (instance instanceof Set){
-                return 'Set'
-            }else if (Array.isArray(x)){
-                return 'Array'
-            }else{
-                return 'Object'
-            }
-        }else{
-
-            return typeof x
-        } 
-
-
-        
-    
+function superTypeOf(data){
+    if (data instanceof Map){return 'Map'};
+    if (data instanceof Set){ return 'Set' };
+    if (data instanceof Array){return 'Array'};
+    if (data instanceof Function){return 'Function'}
+    if (data instanceof Object){return 'Object'};
+    if (data === null){return 'null'};
+    if (data === undefined){return 'undefined'}
+    if (typeof data !== 'object'){return capitalize(typeof data)};
 }
+
+function capitalize(n){
+    return n[0].toUpperCase() + n.slice(1).toLowerCase()
+    
+   }
