@@ -1,15 +1,11 @@
-
-
-   
-    
-function matchCron(cron, date){
+ function matchCron(cron, date){
     var inputDate = new Date(date)
     var dayOfWeek = inputDate.getDay().toString()
     var monthOfYear = (inputDate.getMonth() + 1).toString()
     var dayOfMonth = (inputDate.getUTCDate() + 1).toString()
     var hourOfDay = (inputDate.getHours().toString())
 
-  console.log(dayOfMonth);
+
 
     
 
@@ -18,14 +14,8 @@ function matchCron(cron, date){
         dayOfWeek = dayOfWeek.toString()
     }
 
-    var arrCron = cron.split(" ")
+    var arrCron = cron.split(" ")  
 
-    var res = false
-
-    
-    console.log("checking day",inputDate.getDay());
-    console.log("new day", dayOfWeek);
-    console.log(arrCron[4]);
    
     
     if ((arrCron[0] === inputDate.getMinutes().toString() || arrCron[0] === "*") && (arrCron[1] === hourOfDay || arrCron[1] === "*") && (arrCron[2] === dayOfMonth || arrCron[2] === "*")  && (arrCron[3] === monthOfYear || arrCron[3] === "*") && (arrCron[4] === dayOfWeek || arrCron[4] === "*")){
