@@ -1,3 +1,7 @@
+
+
+   
+    
 function matchCron(cron, date){
     var inputDate = new Date(date)
     var dayOfWeek = inputDate.getDay().toString()
@@ -5,7 +9,7 @@ function matchCron(cron, date){
     var dayOfMonth = (inputDate.getUTCDate() + 1).toString()
     var hourOfDay = (inputDate.getHours().toString())
 
-  console.log(hourOfDay);
+  console.log(dayOfMonth);
 
     
 
