@@ -30,9 +30,6 @@ function firstDayWeek(week, year){
 
     var result = resDay + "-" + resMonth + "-" + resYear
 
-    // for (i = weekStart.length; i>0; i--){
-    //     result += weekStart[i]
-    // }
-
+  
     return result
 }
