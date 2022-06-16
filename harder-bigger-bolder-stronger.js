@@ -12,9 +12,9 @@ export const generateLetters = () =>{
         let letter = document.body.insertBefore(letterDiv, currentDiv)
         letterDiv.style.fontSize = fontS.toString()+"px"
         console.log(fontS);
-        if (i <= 40){
+        if (i < 40){
            letterDiv.style.fontWeight = 300
-        }else if (i > 40 &&i <=80){
+        }else if (i > 40 &&i <80){
            letterDiv.style.fontWeight = 400
         }else{
             letterDiv.style.fontWeight = 600
