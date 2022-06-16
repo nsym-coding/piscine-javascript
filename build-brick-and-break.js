@@ -1,3 +1,4 @@
+
 export const build = (numOfBricks) =>{
     
     
@@ -15,9 +16,7 @@ export const build = (numOfBricks) =>{
     let currentDiv = document.getElementById("div")
     let bricks = document.body.insertBefore(brickDiv, currentDiv)
     if ((i+1)%3 === 0){
-        brickDiv.setAttribute("foundation", true)
-    }else{
-        brickDiv.setAttribute("foundation", false)
+        brickDiv.setAttribute("data-foundation", true)
     }
     i++
 }     
@@ -32,7 +31,7 @@ export const build = (numOfBricks) =>{
 
 }
 
-export const repair = (numIds) =>{
+export const repair = (...numIds) =>{
 
 let chosenBricks = []
 
@@ -48,10 +47,10 @@ for (let i = 0; i<arrOfDivs.length; i++){
 }
 
 for (let i = 0; i<chosenBricks.length; i++){
-    if (chosenBricks[i].hasAttribute("foundation")){
-        chosenBricks[i].setAttribute("repaired", "in progress")
-    }else if (chosenBricks[i].hasAttribute("foundation")!== true){
-        chosenBricks[i].setAttribute("repaired", true)
+    if (chosenBricks[i].hasAttribute("data-foundation")){
+        chosenBricks[i].setAttribute("data-repaired", "in progress")
+    }else {
+        chosenBricks[i].setAttribute("data-repaired", "true".toString())
     }
 }
 console.log(chosenBricks);
