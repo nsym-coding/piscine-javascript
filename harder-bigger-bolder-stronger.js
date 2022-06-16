@@ -1,6 +1,6 @@
 export const generateLetters = () =>{
     let fontS = 11
-    for (let i = 1; i<121; i++){
+    for (let i = 0; i<120; i++){
         let letterDiv = document.createElement("div")
         // let el = document.querySelectorAll("div")
         // let arrOfDivs = Array.from(el)
