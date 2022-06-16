@@ -16,7 +16,7 @@ export const generateLetters = () =>{
            letterDiv.style.fontWeight = 300
         }else if (i > 40 &&i <80){
            letterDiv.style.fontWeight = 400
-        }else if (i > 80){
+        }else if (i > 79){
             letterDiv.style.fontWeight = 600
             
         }
