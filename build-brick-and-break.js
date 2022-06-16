@@ -16,6 +16,8 @@ export const build = (numOfBricks) =>{
     let bricks = document.body.insertBefore(brickDiv, currentDiv)
     if ((i+1)%3 === 0){
         brickDiv.setAttribute("foundation", true)
+    }else{
+        brickDiv.setAttribute("foundation", false)
     }
     i++
 }     
