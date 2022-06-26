@@ -89,8 +89,8 @@ export const explore = () =>{
                             //placeLocation.setAttribute('href', `https://maps.google.com?q=${finalSortedPlaces[i].coordinates}`)
                             
                     console.log(typeof finalSortedPlaces[i].coordinates);
-                            placeLocation.href = `https://google.com/maps?q=` + finalSortedPlaces[i].coordinates
-                            //finalSortedPlaces[i].coordinates.replaceAll('27%', "'") 
+                    placeLocation.href = `https://google.com/maps/search/?api=1&query=` + finalSortedPlaces[i].coordinates
+                    //finalSortedPlaces[i].coordinates.replaceAll('27%', "'") 
                             console.log('checking the href',placeLocation.href);
                             placeLocation.setAttribute('target', '_blank')
                             placeLocation.style.color = `${finalSortedPlaces[i].color}`
