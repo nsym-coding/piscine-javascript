@@ -47,6 +47,7 @@ export const explore = () =>{
  placeLocation = document.createElement('a')
  placeLocation.className = 'location'
  placeLocation.id = 'location'
+ document.body.appendChild(placeLocation)
 
  //create the direction div
  scrollDirection = document.createElement('div')
@@ -80,7 +81,7 @@ export const explore = () =>{
 
         /* this event listener checks if a section is visible halfway down the page
          and if it is will change the location info to displauy the info for that location*/
-        window.addEventListener('scroll', function(){
+        document.addEventListener('scroll', function(){
 
         //    for (let i=0; i<placeSection.length; i++){
                 
@@ -99,16 +100,7 @@ export const explore = () =>{
                 //            // console.log('checking the href',placeLocation.href);
                 //             placeLocation.setAttribute('target', '_blank')
                 //             placeLocation.style.color = `${finalSortedPlaces[i].color}`
-                //             // console.log('checking href split',placeLocation.href
-                //             // .split('%C2%B0')
-                //             // .join('°')
-                //             // .split('%22')
-                //             // .join('"')
-                //             // .split('%20')
-                //             // .join(' ')
-                //             // );
-                //             // console.log('checking pl split',placeLocation.textContent.split('\n')[1]);
-
+                //             
                 //                placeSection[i].append(placeLocation)
                 // }
         //    }
@@ -116,11 +108,24 @@ export const explore = () =>{
 
         let dLocation = finalSortedPlaces[Math.round(scrollY/window.innerHeight)]
         console.log('checkin', placeLocation.textContent);
-        placeLocation.textContent = `${dLocation.name}\n${dLocation.coordinates}`
+        placeLocation.innerHTML = `${dLocation.name}\n${dLocation.coordinates}`
         placeLocation.style.color = `${dLocation.color}`
-        placeLocation.href = `https://www.google.co.uk/maps/place/${dLocation.coordinates}`
+        placeLocation.href = `https://www.google.com/maps/place/${dLocation.coordinates}`
+        console.log(placeLocation.href);
         placeLocation.setAttribute('target', '_blank')
-        document.body.append(placeLocation)
+       let hrefCheck =placeLocation.href
+            .split('%C2%B0')
+                            .join('°')
+                            .split('%22')
+                            .join('"')
+                            .split('%20')
+                            .join(' ')
+                            ;
+                            let coord = placeLocation.textContent.split('\n')[1];
+
+                            console.log('test check ',hrefCheck.includes(coord));
+
+        //document.body.append(placeLocation)
        
             //checking scroll direction
               // Get the new Value
@@ -164,6 +169,3 @@ function imgNameConverter(inputArr){
         }
         
 }
-
-
-
