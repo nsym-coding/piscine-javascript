@@ -82,32 +82,46 @@ export const explore = () =>{
          and if it is will change the location info to displauy the info for that location*/
         window.addEventListener('scroll', function(){
 
-            for (let i=0; i<placeSection.length; i++){
+        //    for (let i=0; i<placeSection.length; i++){
                 
-                if (placeSection[i].getBoundingClientRect().top <window.innerHeight/2 && placeSection[i].getBoundingClientRect().bottom >=0){
-                            placeLocation.textContent = `${finalSortedPlaces[i].name}\n${finalSortedPlaces[i].coordinates}`
-                            //placeLocation.setAttribute('href', `https://maps.google.com?q=${finalSortedPlaces[i].coordinates}`)
+                // if (placeSection[i].getBoundingClientRect().top <window.innerHeight/2 && placeSection[i].getBoundingClientRect().bottom >=0){
+                //     placeLocation.textContent = ""
+                //     console.log('checkin', placeLocation.textContent);
+                    
+                //             placeLocation.textContent = `${finalSortedPlaces[i].name}\n${finalSortedPlaces[i].coordinates}`
+                //             //placeLocation.setAttribute('href', `https://maps.google.com?q=${finalSortedPlaces[i].coordinates}`)
                             
-                    console.log(typeof finalSortedPlaces[i].coordinates);
-                    placeLocation.href = `https://google.com/maps/search/?api=1&query=` + finalSortedPlaces[i].coordinates
-                    //finalSortedPlaces[i].coordinates.replaceAll('27%', "'") 
-                            console.log('checking the href',placeLocation.href);
-                            placeLocation.setAttribute('target', '_blank')
-                            placeLocation.style.color = `${finalSortedPlaces[i].color}`
-                            console.log('checking href split',placeLocation.href
-                            .split('%C2%B0')
-                            .join('°')
-                            .split('%22')
-                            .join('"')
-                            .split('%20')
-                            .join(' ')
-                            );
-                            console.log('checking pl split',placeLocation.textContent.split('\n')[1]);
+                  
+                //     //maybe pass through the dms version?
+                  
+                //     console.log('checki final sp',finalSortedPlaces[i].coordinates);
+                //             placeLocation.href = `https://www.google.co.uk/maps/place/${finalSortedPlaces[i].coordinates}`
+                //            // console.log('checking the href',placeLocation.href);
+                //             placeLocation.setAttribute('target', '_blank')
+                //             placeLocation.style.color = `${finalSortedPlaces[i].color}`
+                //             // console.log('checking href split',placeLocation.href
+                //             // .split('%C2%B0')
+                //             // .join('°')
+                //             // .split('%22')
+                //             // .join('"')
+                //             // .split('%20')
+                //             // .join(' ')
+                //             // );
+                //             // console.log('checking pl split',placeLocation.textContent.split('\n')[1]);
 
-                               placeSection[i].append(placeLocation)
-                }
-            }
+                //                placeSection[i].append(placeLocation)
+                // }
+        //    }
 
+
+        let dLocation = finalSortedPlaces[Math.round(scrollY/window.innerHeight)]
+        console.log('checkin', placeLocation.textContent);
+        placeLocation.textContent = `${dLocation.name}\n${dLocation.coordinates}`
+        placeLocation.style.color = `${dLocation.color}`
+        placeLocation.href = `https://www.google.co.uk/maps/place/${dLocation.coordinates}`
+        placeLocation.setAttribute('target', '_blank')
+        document.body.append(placeLocation)
+       
             //checking scroll direction
               // Get the new Value
     let newScrollPos = window.pageYOffset;
@@ -150,20 +164,6 @@ function imgNameConverter(inputArr){
         }
         
 }
-
-//function from SO to check if an element is in the viewport
-function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        
-        );
-    }
-
-
 
 
 
