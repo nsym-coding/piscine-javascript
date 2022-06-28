@@ -51,3 +51,19 @@ function fusion(objOne, objTwo){
     }
     return  res
 }
+
+function checkArr(inputArr){
+    return inputArr instanceof Array
+}
+
+function checkStr(inputArr){
+    return typeof inputArr === 'string'
+}
+
+function checkNum(inputArr){
+    return typeof inputArr === 'number'
+}
+
+function checkObj(inputArr){
+    return inputArr instanceof Object
+}
